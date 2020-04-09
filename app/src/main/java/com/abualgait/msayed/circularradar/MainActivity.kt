@@ -19,24 +19,29 @@ class MainActivity : AppCompatActivity() {
         createAvatar(180f, 150.px, 40.px, R.drawable.photo_male_1)
         createAvatar(100f, 150.px, 40.px, R.drawable.photo_male_5)
         createAvatar(140f, 150.px, 40.px, R.drawable.photo_male_3)
+        
     }
 
     private fun createAvatar(angle: Float, raduis: Int, size: Int, @DrawableRes img: Int) {
-        val set = ConstraintSet()
+
         //create imageview
-        val childView = CircleImageView(this)
-        childView.setImageResource(img)
-        val layoutParams = LinearLayout.LayoutParams(size, size)
-        childView.layoutParams = layoutParams
-        childView.id = View.generateViewId()
-        container.addView(childView)
+        val childView = CircleImageView(this).apply {
+            setImageResource(img)
+            val lp = LinearLayout.LayoutParams(size, size)
+            layoutParams = lp
+            id = View.generateViewId()
+            container.addView(this)
+        }
         //connect it via constraints
-        set.clone(container)
-        set.connect(childView.id, ConstraintSet.TOP, center_image.id, ConstraintSet.TOP)
-        set.connect(childView.id, ConstraintSet.START, center_image.id, ConstraintSet.START)
-        // you can control the angle and radius to prevent repetitive over same place
-        set.constrainCircle(childView.id, center_image.id, raduis, angle)
-        set.applyTo(container)
+        ConstraintSet().apply {
+            clone(container)
+            connect(childView.id, ConstraintSet.TOP, center_image.id, ConstraintSet.TOP)
+            connect(childView.id, ConstraintSet.START, center_image.id, ConstraintSet.START)
+            // you can control the angle and radius to prevent repetitive over same place
+            constrainCircle(childView.id, center_image.id, raduis, angle)
+            applyTo(container)
+        }
+
     }
 }
 
