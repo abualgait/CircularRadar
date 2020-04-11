@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        content.startRippleAnimation()
         createAvatar(180f, 150.px, 40.px, R.drawable.photo_male_1)
         createAvatar(100f, 150.px, 40.px, R.drawable.photo_male_5)
         createAvatar(140f, 150.px, 40.px, R.drawable.photo_male_3)
-        
+
     }
 
     private fun createAvatar(angle: Float, raduis: Int, size: Int, @DrawableRes img: Int) {

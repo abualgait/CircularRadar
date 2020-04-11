@@ -11,6 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="@drawable/ripple_1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/center_image"
         app:layout_constraintEnd_toEndOf="@+id/center_image"
         app:layout_constraintStart_toStartOf="@+id/center_image"
@@ -21,6 +22,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/ripple_2"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/center_image"
         app:layout_constraintEnd_toEndOf="@+id/center_image"
         app:layout_constraintStart_toStartOf="@+id/center_image"
@@ -31,11 +33,23 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/ripple_1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/center_image"
         app:layout_constraintEnd_toEndOf="@+id/center_image"
         app:layout_constraintStart_toStartOf="@+id/center_image"
         app:layout_constraintTop_toTopOf="@+id/center_image" />
 
+    <com.skyfishjy.library.RippleBackground
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rb_color="#0099CC"
+        app:rb_duration="6000"
+        app:rb_radius="50dp"
+        app:rb_rippleAmount="4"
+        app:rb_scale="6">
+
+    </com.skyfishjy.library.RippleBackground>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/center_image"
@@ -47,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image2"
         android:layout_width="40dp"
